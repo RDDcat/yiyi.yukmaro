@@ -1,32 +1,50 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+  <div class="cards">
+    <div class="card" v-if="isGreen" @click.stop="isGreen=false">
+      <img class="card-image" src="@/assets/yiyi_green_1.jpg">
+      <h3 class="card-text">브이이</h3>
+    </div>
+    <div class="card" v-if="!isGreen" @click.stop="isGreen=true">
+      <img class="card-image" src="@/assets/yiyi_green_2.jpg">
+      <h3 class="card-text">브이이</h3>
+    </div>
+    
+    <div class="card" v-if="isyellow" @click.stop="isyellow=false">
+      <img class="card-image" src="@/assets/yiyi_yellow_1.jpg">
+      <h3 class="card-text">브이이</h3>
+    </div>
+    <div class="card" v-if="!isyellow" @click.stop="isyellow=true">
+      <img class="card-image" src="@/assets/yiyi_yellow_2.jpg">
+      <h3 class="card-text">브이이</h3>
+    </div>
+    
+    <div class="card" v-if="isPurple" @click.stop="isPurple=false">
+      <img class="card-image" src="@/assets/yiyi_purple_1.jpg">
+      <h3 class="card-text">브이이</h3>
+    </div>
+    <div class="card" v-if="!isPurple" @click.stop="isPurple=true">
+      <img class="card-image" src="@/assets/yiyi_purple_2.jpg">
+      <h3 class="card-text">브이이</h3>
+    </div>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <img class="card-image" src="@/assets/yiyi.jpg">
+      <h3 class="card-text">브이이</h3>
+    </div>
+    <div class="card">
+      <img class="card-image" src="@/assets/yiyi_fox.jpg">
+      <h3 class="card-text">팍스이이</h3>
+    </div>
+    <div class="card">
+      <img class="card-image" src="@/assets/yiyi_wink.jpg">
+      <h3 class="card-text">윙키이</h3>
+    </div>
+    <div class="card">
+      <img class="card-image" src="@/assets/yiyi_babo.jpg">
+      <h3 class="card-text">바보 이이 ㅋㅋ</h3>
+    </div>
   </div>
 </template>
 
@@ -35,24 +53,39 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
-  }
+  },
+  data(){
+    return {
+      isGreen:true,
+      isyellow:true,
+      isPurple:true,
+
+    }
+  },
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+.cards{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+.card{
+  margin: 0.5rem;
+  width: 18rem;
+  height: 25rem;
+  background-color: #cfe2fa;
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+.card-image{
+  margin-top: 0.5rem;
+  width: 16rem;
+  height: 20rem;
+  object-fit: cover;
+  border-radius: 1rem;
 }
-a {
-  color: #42b983;
+.card-text{
+
 }
 </style>
